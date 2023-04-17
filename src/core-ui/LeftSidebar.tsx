@@ -2,17 +2,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { type FC } from "react";
 import { AiOutlineFileProtect } from "react-icons/ai";
-import { BiMessageSquareDots } from "react-icons/bi";
+import { BsCalendar2Check } from "react-icons/bs";
 import { CiViewTimeline } from "react-icons/ci";
 import { FiSettings } from "react-icons/fi";
 import { GiPapers } from "react-icons/gi";
+import UpcomingEvent from "./UpcomingEvent";
 
 interface LeftSidebarProps {}
 
 const LeftSidebar: FC<LeftSidebarProps> = ({}) => {
   const location = useRouter();
-
-  console.log(location.pathname);
 
   return (
     <React.Fragment>
@@ -38,7 +37,7 @@ const LeftSidebar: FC<LeftSidebarProps> = ({}) => {
         </div>
 
         <div className="min-h-[55vh]">
-          <p>Hello Event Area</p>
+          <UpcomingEvent />
         </div>
       </div>
     </React.Fragment>
@@ -54,25 +53,25 @@ const navigationData = [
     icon: <CiViewTimeline size={20} />,
   },
   {
-    id: 1,
-    label: "Message",
-    path: "/message",
-    icon: <BiMessageSquareDots size={20} />,
+    id: 2,
+    label: "Calender",
+    path: "/calender",
+    icon: <BsCalendar2Check size={20} />,
   },
   {
-    id: 1,
+    id: 3,
     label: "Exam",
     path: "/exam",
     icon: <GiPapers size={20} />,
   },
   {
-    id: 1,
+    id: 4,
     label: "File",
     path: "/file",
     icon: <AiOutlineFileProtect size={20} />,
   },
   {
-    id: 1,
+    id: 5,
     label: "Settings",
     path: "/settings",
     icon: <FiSettings size={20} />,

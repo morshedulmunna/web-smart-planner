@@ -5,12 +5,11 @@
 *::-webkit-scrollbar {
   display: block;
   background: transparent;
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(37, 56, 75);
-  background-color: #bbccdd;
+  background-color: #d0d7df;
   border-radius: 10px;
 }
 *::-webkit-scrollbar-corner {
@@ -18,7 +17,7 @@
 }
 
 body {
-  background-color: #f5faff;
+  background-color: #fafafa;
 }
 
 @layer base {

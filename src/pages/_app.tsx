@@ -3,6 +3,7 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { LeftSidebar, TopNavbar } from "~/core-ui";
+import ProfileInfo from "~/core-ui/ProfileInfo";
 import "~/styles/globals.css";
 
 const queryClient = new QueryClient();
@@ -24,7 +25,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
                 <LeftSidebar />
               </aside>
               <div className="col-span-10 ">
-                <div className="">Profile Info</div>
+                <div className="">
+                  <ProfileInfo />
+                </div>
                 <div className="grid grid-cols-12 ">
                   <div className=" col-span-12   lg:col-span-8">
                     <Component {...pageProps} />
