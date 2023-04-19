@@ -20,7 +20,7 @@ export default {
     //   inter: "Inter, sans-serif",
     //   roboto: "Roboto, sans-serif",
     // },
-    extend: { colors: {} },
+    extend: { colors: {}, backgroundImage: {}, fontSize: {} },
   },
   variants: {
     extend: {},
