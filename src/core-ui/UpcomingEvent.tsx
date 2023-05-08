@@ -1,6 +1,6 @@
-import React, { type FC } from "react";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import OpenEvent from "~/components/OpenEvent";
+import React, { type FC } from 'react';
+import { IoMdAddCircleOutline } from 'react-icons/io';
+import OpenEvent from '@/components/OpenEvent';
 
 interface UpcomingEventProps {}
 

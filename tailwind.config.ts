@@ -1,7 +1,7 @@
-import { type Config } from "tailwindcss";
+import { type Config } from 'tailwindcss';
 
 export default {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   // When you Define Outside the extend it's means overwrite default utility class
 
   theme: {

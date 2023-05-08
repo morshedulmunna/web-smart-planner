@@ -1,14 +1,16 @@
-import React, { type FC } from "react";
-import { LeftSidebar, TopNavbar } from "~/core-ui";
-import ProfileInfo from "~/core-ui/ProfileInfo";
+'use client';
 
-interface RootLayoutProps {
-  children: React.ReactElement;
-}
+import { LeftSidebar, TopNavbar } from '@/core-ui';
+import ProfileInfo from '@/core-ui/ProfileInfo';
+import { Inter } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const RootLayout: FC<RootLayoutProps> = ({ children }) => {
+const inter = Inter({ subsets: ['latin'] });
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <React.Fragment>
+    <>
       <div className=" grid h-screen grid-cols-12 overflow-hidden ">
         <div className=" col-span-10">
           <div className=" bg-white ">
@@ -34,7 +36,8 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
         </div>
         <div className="col-span-2 ">Right Sidebar</div>
       </div>
-    </React.Fragment>
+      <ToastContainer />
+      <footer>Footer</footer>
+    </>
   );
-};
-export default RootLayout;
+}

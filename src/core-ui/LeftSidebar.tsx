@@ -1,17 +1,17 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { type FC } from "react";
-import { AiOutlineFileProtect } from "react-icons/ai";
-import { BsCalendar2Check } from "react-icons/bs";
-import { CiViewTimeline } from "react-icons/ci";
-import { FiSettings } from "react-icons/fi";
-import { GiPapers } from "react-icons/gi";
-import UpcomingEvent from "./UpcomingEvent";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { type FC } from 'react';
+import { AiOutlineFileProtect } from 'react-icons/ai';
+import { BsCalendar2Check } from 'react-icons/bs';
+import { CiViewTimeline } from 'react-icons/ci';
+import { FiSettings } from 'react-icons/fi';
+import { GiPapers } from 'react-icons/gi';
+import UpcomingEvent from './UpcomingEvent';
 
 interface LeftSidebarProps {}
 
 const LeftSidebar: FC<LeftSidebarProps> = ({}) => {
-  const location = useRouter();
+  const pathname = usePathname();
 
   return (
     <React.Fragment>
@@ -25,9 +25,8 @@ const LeftSidebar: FC<LeftSidebarProps> = ({}) => {
               <Link key={each.id} href={each.path}>
                 <li
                   className={`flex items-center justify-start space-x-4 p-6 py-3 font-semibold duration-300 ease-linear hover:bg-gray-100 ${
-                    location.pathname === each.path && "bg-gray-100"
-                  } `}
-                >
+                    pathname === each.path && 'bg-gray-100'
+                  } `}>
                   <span> {each.icon} </span>
                   <span>{each.label}</span>
                 </li>
@@ -48,32 +47,32 @@ export default LeftSidebar;
 const navigationData = [
   {
     id: 1,
-    label: "Timeline",
-    path: "/",
+    label: 'Timeline',
+    path: '/',
     icon: <CiViewTimeline size={20} />,
   },
   {
     id: 2,
-    label: "Calender",
-    path: "/calender",
+    label: 'Calender',
+    path: '/calender',
     icon: <BsCalendar2Check size={20} />,
   },
   {
     id: 3,
-    label: "Exam",
-    path: "/exam",
+    label: 'Exam',
+    path: '/exam',
     icon: <GiPapers size={20} />,
   },
   {
     id: 4,
-    label: "File",
-    path: "/file",
+    label: 'File',
+    path: '/file',
     icon: <AiOutlineFileProtect size={20} />,
   },
   {
     id: 5,
-    label: "Settings",
-    path: "/settings",
+    label: 'Settings',
+    path: '/settings',
     icon: <FiSettings size={20} />,
   },
 ];

@@ -20,7 +20,7 @@ const TopNavbar: FC<TopNavbarProps> = ({}) => {
             />
           </div>
           <div className="flex items-center justify-end space-x-8 ">
-            <BiUser size={20} />
+            {/* <BiUser size={20} /> */}
             {/* <BiMessageAltDetail size={20} /> */}
             {/* <RiNotificationLine size={20} /> */}
           </div>
