@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import React, { type FC } from 'react';
-import { profile } from '@/assets';
+import { profile } from "@/assets";
+import Image from "next/image";
+import React, { type FC } from "react";
 
 interface ProfileInfoProps {}
 
@@ -18,15 +18,6 @@ const ProfileInfo: FC<ProfileInfoProps> = ({}) => {
             <div className="min-w-[250px] px-6">
               <h2 className="text-xl font-semibold">Morshedul Munna</h2>
               <span className=" text-sm">full-stack Software Developer</span>
-            </div>
-            <div className="px-6">
-              <p
-                className={`text-sm before:ml-0.5 before:text-3xl before:text-pink-500 before:content-['"']`}>
-                A self-motivated and enthusiastic web developer with a deep
-                interest in JavaScript (React.js). To work in the Software
-                industry with modern web technologies of different local &
-                multinational Software
-              </p>
             </div>
           </div>
         </div>
