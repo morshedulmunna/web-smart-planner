@@ -1,8 +1,12 @@
-import React, { type FC } from "react";
+"use client";
+import Modal from "@/components/Modal";
+import React, { useState, type FC } from "react";
 
 interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <React.Fragment>
       <div className="h-[60vh] overflow-y-scroll bg-white m-4 shadow p-4 rounded-md">
@@ -14,12 +18,26 @@ const page: FC<pageProps> = ({}) => {
             <div className="bg-green-500 h-3 w-3 rounded-full"></div>
             <div className="bg-blue-500 h-3 w-3 rounded-full"></div>
 
-            <button className="border-blue-500 border px-2 rounded-xl text-lg text-blue-500 hover:bg-blue-500 hover:text-white duration-150 ease-linear">
+            <button
+              onClick={() => setOpen(true)}
+              className="border-blue-500 border px-2 rounded-xl text-lg text-blue-500 hover:bg-blue-500 hover:text-white duration-150 ease-linear"
+            >
               +
             </button>
           </div>
         </div>
         {/* title area  End*/}
+
+        {/* Modal */}
+        <Modal
+          content={
+            <div className="w-[600px]">
+              <p>hello</p>
+            </div>
+          }
+          showModal={open}
+          setShowModal={setOpen}
+        />
 
         {/* Create TODO Items */}
         <div className="grid grid-cols-12 px-4 py-4">

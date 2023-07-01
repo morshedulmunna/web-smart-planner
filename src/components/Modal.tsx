@@ -1,12 +1,15 @@
-import React, { useState, type FC } from "react";
+"use client";
+
+import React, { type FC } from "react";
 import { FaTimes } from "react-icons/fa";
 
 interface ModalProps {
   content: React.ReactElement;
+  showModal: boolean;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Modal: FC<ModalProps> = ({ content }) => {
-  const [showModal, setShowModal] = useState(false);
+const Modal: FC<ModalProps> = ({ content, showModal, setShowModal }) => {
   return (
     <React.Fragment>
       {showModal && (
@@ -15,7 +18,7 @@ const Modal: FC<ModalProps> = ({ content }) => {
             <div className="absolute right-0 top-0 float-right m-2 cursor-pointer rounded-lg border bg-white p-1 shadow">
               <FaTimes onClick={() => setShowModal(false)} size={16} />
             </div>
-            <div className="mt-4">{content}</div>
+            <section className="mt-4">{content}</section>
           </div>
         </div>
       )}
