@@ -5,7 +5,7 @@ interface pageProps {}
 const page: FC<pageProps> = ({}) => {
   return (
     <React.Fragment>
-      <div className="h-[64vh] overflow-y-scroll bg-white m-4 shadow p-4 rounded-md">
+      <div className="h-[60vh] overflow-y-scroll bg-white m-4 shadow p-4 rounded-md">
         {/* title area */}
         <div className="flex  border-b-[1px] pb-4 justify-between items-center">
           <h2 className="font-semibold">CLASS TIMELINE</h2>
@@ -19,6 +19,28 @@ const page: FC<pageProps> = ({}) => {
             </button>
           </div>
         </div>
+        {/* title area  End*/}
+
+        {/* Create TODO Items */}
+        <div className="grid grid-cols-12 px-4 py-4">
+          <div className="col-span-3 flex flex-col justify-center ite">
+            {/* Today */}
+            <p className="text-lg font-medium">Today</p>
+            <p className="text-xs">Jan 03 2023</p>
+          </div>
+          <div className="col-span-2">
+            <p>7:30 am</p>
+            <p>8:30 am</p>
+          </div>
+          <div className="col-span-7 border-l-[1px] pl-3">
+            <h5 className="font-medium">Learn Rust Programming</h5>
+            <p className="text-xs">
+              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Voluptatibus eaque dicta sit.
+            </p>
+          </div>
+        </div>
+        {/* Create TODO Items End */}
       </div>
     </React.Fragment>
   );

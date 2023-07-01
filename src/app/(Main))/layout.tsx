@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <div className=" mx-6 grid h-screen grid-cols-12 overflow-hidden ">
+    <div>
+      <div className=" mx-6 grid grid-cols-12  ">
         <div className=" col-span-12 lg:col-span-10">
           <div className=" bg-white ">
             <TopNavbar />
@@ -31,10 +31,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </div>
+
         <div className="col-span-2 hidden lg:block  ">Right Sidebar</div>
       </div>
-      <footer>Footer</footer>
       {/* <ToastContainer /> */}
-    </>
+      <footer className="bg-gray-500">Footer</footer>
+    </div>
   );
 }

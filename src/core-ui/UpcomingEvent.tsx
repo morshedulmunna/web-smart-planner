@@ -1,6 +1,6 @@
-import React, { type FC } from 'react';
-import { IoMdAddCircleOutline } from 'react-icons/io';
-import OpenEvent from '@/components/OpenEvent';
+import OpenEvent from "@/components/OpenEvent";
+import React, { type FC } from "react";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 interface UpcomingEventProps {}
 
@@ -16,7 +16,7 @@ const UpcomingEvent: FC<UpcomingEventProps> = ({}) => {
         <p>Create New Event</p>
       </div>
 
-      <div className=" mt-2 h-[45vh] overflow-scroll ">
+      <div className=" mt-2 h-[40vh] overflow-scroll ">
         <OpenEvent />
         <OpenEvent />
         <OpenEvent />
