@@ -1,4 +1,5 @@
 "use client";
+import CreateTodoForm from "@/components/CreateTodoForm";
 import Modal from "@/components/Modal";
 import React, { useState, type FC } from "react";
 
@@ -32,7 +33,7 @@ const page: FC<pageProps> = ({}) => {
         <Modal
           content={
             <div className="w-[600px]">
-              <p>hello</p>
+              <CreateTodoForm />
             </div>
           }
           showModal={open}
