@@ -3,6 +3,7 @@
 import { LeftSidebar, TopNavbar } from "@/core-ui";
 import ProfileInfo from "@/core-ui/ProfileInfo";
 import { Inter } from "next/font/google";
+
 import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
