@@ -33,7 +33,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="col-span-2 hidden lg:block  ">Right Sidebar</div>
       </div>
-      <footer className="bg-gray-500">Footer</footer>
     </div>
   );
 }

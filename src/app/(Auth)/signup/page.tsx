@@ -30,7 +30,7 @@ const page: FC<pageProps> = ({}) => {
 
   if (user) {
     toast.success("Register Successful");
-    router.push("/");
+    router.push("/login");
   }
 
   if (error) {

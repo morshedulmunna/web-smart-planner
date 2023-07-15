@@ -1,5 +1,6 @@
 "use client";
 
+import { userCreate } from "@/api";
 import auth from "@/api/config/firebase.config";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,8 +23,14 @@ const page: FC<pageProps> = ({}) => {
     useSignInWithEmailAndPassword(auth);
 
   const router = useRouter();
-  const onSubmit = async (data: { email: string; password: string }) => {
+  const formSubmit = async (data: { email: string; password: string }) => {
     signInWithEmailAndPassword(data.email, data.password);
+
+    const login = userCreate({
+      email: data.email,
+      password: data.password,
+    });
+
     reset();
   };
 
@@ -53,7 +60,7 @@ const page: FC<pageProps> = ({}) => {
 
           {/*  */}
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(formSubmit)}
             className="space-y-6"
             action="#"
             method="POST"
