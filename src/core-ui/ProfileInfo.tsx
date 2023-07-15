@@ -16,7 +16,7 @@ const ProfileInfo: FC<ProfileInfoProps> = ({}) => {
           {/* name and profession */}
           <div className="ml-60 flex  divide-x-[1px] py-2">
             <div className="min-w-[250px] px-6">
-              <h2 className="text-xl font-semibold">Morshedul Munna</h2>
+              <h2 className="text-xl font-semibold">User Name</h2>
               <span className=" text-sm">full-stack Software Developer</span>
             </div>
           </div>

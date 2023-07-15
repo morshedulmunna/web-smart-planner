@@ -4,8 +4,6 @@ import { LeftSidebar, TopNavbar } from "@/core-ui";
 import ProfileInfo from "@/core-ui/ProfileInfo";
 import { Inter } from "next/font/google";
 
-import "react-toastify/dist/ReactToastify.css";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -35,7 +33,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="col-span-2 hidden lg:block  ">Right Sidebar</div>
       </div>
-      {/* <ToastContainer /> */}
       <footer className="bg-gray-500">Footer</footer>
     </div>
   );

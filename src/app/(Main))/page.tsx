@@ -1,12 +1,33 @@
 "use client";
+import { deleteTodo, getallTodo } from "@/api";
 import CreateTodoForm from "@/components/CreateTodoForm";
 import Modal from "@/components/Modal";
-import React, { useState, type FC } from "react";
+import { timeFormat } from "@/utils/getTime";
+import React, { useEffect, useState } from "react";
+import { TiDelete } from "react-icons/ti";
 
-interface pageProps {}
-
-const page: FC<pageProps> = ({}) => {
+const Todo = ({}) => {
   const [open, setOpen] = useState(false);
+  const [todo, setToto] = useState([]);
+
+  useEffect(() => {
+    getallTodo()
+      .then((todoList) => {
+        setToto(todoList);
+      })
+      .catch((error) => {
+        console.error("Error fetching todo list:", error);
+      });
+  }, [todo]);
+
+  const handleDelete = async (id: string) => {
+    const res = await deleteTodo(id);
+    console.log(res);
+
+    if (res) {
+      window.alert(`Item Deleted ID: ${id}`);
+    }
+  };
 
   return (
     <React.Fragment>
@@ -33,7 +54,7 @@ const page: FC<pageProps> = ({}) => {
         <Modal
           content={
             <div className="w-[600px]">
-              <CreateTodoForm />
+              <CreateTodoForm setShowModal={setOpen} />
             </div>
           }
           showModal={open}
@@ -41,27 +62,35 @@ const page: FC<pageProps> = ({}) => {
         />
 
         {/* Create TODO Items */}
-        <div className="grid grid-cols-12 px-4 py-4">
-          <div className="col-span-3 flex flex-col justify-center ite">
-            {/* Today */}
-            <p className="text-lg font-medium">Today</p>
-            <p className="text-xs">Jan 03 2023</p>
+        {todo.map((item: any) => (
+          <div key={item.id} className="flex justify-between items-center">
+            <div className="grid grid-cols-12 px-4 py-4 w-full">
+              <div className="col-span-2 border-r">
+                <span>Data Time</span>
+                <p className="text-base font-medium">
+                  {timeFormat(item.create_at).mainDate}
+                </p>
+              </div>
+              <div className="col-span-3 ml-6">
+                <p>{timeFormat(item.start_time).formattedTime} </p>
+                <p>{timeFormat(item.end_time).formattedTime} </p>
+              </div>
+              <div className="col-span-7 border-l-[1px] pl-3">
+                <h5 className="font-medium"> {item.title} </h5>
+                <p className="text-xs">{item.short_des.slice(0, 100)}...</p>
+              </div>
+            </div>
+            <button
+              onClick={() => handleDelete(item.id)}
+              className="bg-red-500 p-[1px] rounded"
+            >
+              <TiDelete color="white" size={19} />
+            </button>
           </div>
-          <div className="col-span-2">
-            <p>7:30 am</p>
-            <p>8:30 am</p>
-          </div>
-          <div className="col-span-7 border-l-[1px] pl-3">
-            <h5 className="font-medium">Learn Rust Programming</h5>
-            <p className="text-xs">
-              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Voluptatibus eaque dicta sit.
-            </p>
-          </div>
-        </div>
+        ))}
         {/* Create TODO Items End */}
       </div>
     </React.Fragment>
   );
 };
-export default page;
+export default Todo;

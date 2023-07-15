@@ -1,11 +1,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { type FC } from "react";
-import { AiOutlineFileProtect } from "react-icons/ai";
 import { BsCalendar2Check } from "react-icons/bs";
 import { CiViewTimeline } from "react-icons/ci";
-import { FiSettings } from "react-icons/fi";
-import { GiPapers } from "react-icons/gi";
 import UpcomingEvent from "./UpcomingEvent";
 
 interface LeftSidebarProps {}
@@ -58,22 +55,22 @@ const navigationData = [
     path: "/calender",
     icon: <BsCalendar2Check size={20} />,
   },
-  {
-    id: 3,
-    label: "Exam",
-    path: "/exam",
-    icon: <GiPapers size={20} />,
-  },
-  {
-    id: 4,
-    label: "File",
-    path: "/file",
-    icon: <AiOutlineFileProtect size={20} />,
-  },
-  {
-    id: 5,
-    label: "Settings",
-    path: "/settings",
-    icon: <FiSettings size={20} />,
-  },
+  // {
+  //   id: 3,
+  //   label: "Exam",
+  //   path: "/exam",
+  //   icon: <GiPapers size={20} />,
+  // },
+  // {
+  //   id: 4,
+  //   label: "File",
+  //   path: "/file",
+  //   icon: <AiOutlineFileProtect size={20} />,
+  // },
+  // {
+  //   id: 5,
+  //   label: "Settings",
+  //   path: "/settings",
+  //   icon: <FiSettings size={20} />,
+  // },
 ];

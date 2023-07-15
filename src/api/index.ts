@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const API = axios.create({
@@ -15,20 +14,30 @@ API.interceptors.request.use((req) => {
 });
 
 // Example Change ->
-export const useGetPost = () => {
-  return useQuery(["getPost"], async () => {
-    const response = await API.get<any>("/posts");
-    return response.data;
-  });
-};
-export const useGetComment = () => {
-  return useQuery(["getPost"], async () => {
-    const response = await API.get<any>("/comments");
-    return response.data;
-  });
-};
-
-// ++++ add this code in your index.ts file
-// export const useCreatePost = () => {
-//   return useMutation((data: any) => API.post("/posts", data));
+// export const useGetPost = () => {
+//   return useQuery(["getPost"], async () => {
+//     const response = await API.get<any>("/posts");
+//     return response.data;
+//   });
 // };
+// export const useGetComment = () => {
+//   return useQuery(["getPost"], async () => {
+//     const response = await API.get<any>("/comments");
+//     return response.data;
+//   });
+// };
+
+export const createTodo = async (body: any) => {
+  const response = await API.post("/todo", body);
+  return response.data;
+};
+export const getallTodo = async () => {
+  const response = await API.get("/todo");
+  const data = await response.data;
+  return data;
+};
+export const deleteTodo = async (id: string) => {
+  const response = await API.delete(`/todo/${id}`);
+  const data = await response.data;
+  return data;
+};
