@@ -1,10 +1,18 @@
+"use client";
+
+import auth from "@/api/config/firebase.config";
 import { profile } from "@/assets";
 import Image from "next/image";
 import React, { type FC } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 interface ProfileInfoProps {}
 
 const ProfileInfo: FC<ProfileInfoProps> = ({}) => {
+  const [user, loading, error] = useAuthState(auth);
+
+  console.log(user);
+
   return (
     <React.Fragment>
       <div className="relative">

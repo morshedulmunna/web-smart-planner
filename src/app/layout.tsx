@@ -1,9 +1,11 @@
 "use client";
 
+import auth from "@/api/config/firebase.config";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/navigation";
+import { useAuthState } from "react-firebase-hooks/auth";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,6 +18,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+
+  const [user, loading, error] = useAuthState(auth);
+
+  if (user === null) {
+    router.push("/login");
+  }
+
   return (
     <html lang="en">
       <body className={`${inter.className} bg-white`}>

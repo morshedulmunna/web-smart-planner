@@ -1,8 +1,10 @@
 "use client";
 
 import { createTodo } from "@/api";
+import auth from "@/api/config/firebase.config";
 import { useState } from "react";
 import "react-clock/dist/Clock.css";
+import { useAuthState } from "react-firebase-hooks/auth";
 import TimePicker from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
 
@@ -18,6 +20,8 @@ export default function CreateTodoForm({ setShowModal }: Props) {
   const start_time1 = `${currentDate}T${value1}:00Z`;
   const start_time2 = `${currentDate}T${value2}:00Z`;
 
+  const [user, loading, error] = useAuthState(auth);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const object = {
@@ -25,6 +29,7 @@ export default function CreateTodoForm({ setShowModal }: Props) {
       short_des: description,
       start_time: start_time1,
       end_time: start_time2,
+      email: user?.email,
     };
 
     const data = await createTodo(object);

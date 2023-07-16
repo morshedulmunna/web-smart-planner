@@ -1,17 +1,21 @@
 "use client";
 import { deleteTodo, getallTodo } from "@/api";
+import auth from "@/api/config/firebase.config";
 import CreateTodoForm from "@/components/CreateTodoForm";
 import Modal from "@/components/Modal";
 import { timeFormat } from "@/utils/getTime";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { TiDelete } from "react-icons/ti";
 
 const Todo = ({}) => {
   const [open, setOpen] = useState(false);
   const [todo, setToto] = useState([]);
 
+  const [user, loading, error] = useAuthState(auth);
+
   useEffect(() => {
-    getallTodo()
+    getallTodo(user?.email)
       .then((todoList) => {
         setToto(todoList);
       })

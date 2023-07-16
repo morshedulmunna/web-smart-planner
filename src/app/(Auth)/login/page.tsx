@@ -31,6 +31,8 @@ const page: FC<pageProps> = ({}) => {
       password: data.password,
     });
 
+    console.log(login);
+
     reset();
   };
 

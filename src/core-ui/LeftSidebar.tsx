@@ -1,6 +1,10 @@
+"use client";
+
+import auth from "@/api/config/firebase.config";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { type FC } from "react";
+import { useSignOut } from "react-firebase-hooks/auth";
 import { BsCalendar2Check } from "react-icons/bs";
 import { CiViewTimeline } from "react-icons/ci";
 import UpcomingEvent from "./UpcomingEvent";
@@ -9,7 +13,8 @@ interface LeftSidebarProps {}
 
 const LeftSidebar: FC<LeftSidebarProps> = ({}) => {
   const pathname = usePathname();
-
+  const [signOut, loading, error] = useSignOut(auth);
+  const router = useRouter();
   return (
     <React.Fragment>
       <div className=" border-r-[1px] border-gray-100 bg-white shadow">
@@ -31,6 +36,17 @@ const LeftSidebar: FC<LeftSidebarProps> = ({}) => {
               </Link>
             ))}
           </ul>
+          <button
+            onClick={async () => {
+              const success = await signOut();
+              if (success) {
+                router.push("/login");
+              }
+            }}
+            className="ml-6 my-6 bg-red-500 text-white px-8 rounded py-1 hover:bg-opacity-90"
+          >
+            Log Out
+          </button>
         </div>
 
         <div className="">

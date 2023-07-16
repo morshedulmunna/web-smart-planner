@@ -22,8 +22,8 @@ export const createTodo = async (body: any) => {
   return response.data;
 };
 
-export const getallTodo = async () => {
-  const response = await API.get("/todo");
+export const getallTodo = async (email: any) => {
+  const response = await API.get(`/todo/${email}`);
   const data = await response.data;
   return data;
 };
